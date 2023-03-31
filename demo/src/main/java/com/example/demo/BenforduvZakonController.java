@@ -74,8 +74,8 @@ public class BenforduvZakonController extends Application {
     private void processFile(File file) {
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
+            br.readLine();
             while ((line = br.readLine()) != null) {
-                line.lines().skip(1);
                 String[] transaction = line.split(";");
                 String user = transaction[1] + transaction[2];
                 double amount = Double.parseDouble(transaction[3]);
